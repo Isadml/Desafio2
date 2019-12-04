@@ -153,14 +153,14 @@ and open the template in the editor.
 //************************************************************************************************************************
 
         if (isset($_REQUEST['inactivo_u'])) {
-            $codigo = $_REQUEST['codigo'];
+            $email = $_REQUEST['email'];
             $num = 1;
             Conexion::abrirBBDD();
-            Conexion::modificarEstadoJuego($codigo, $num);
-            $listaReviews = Conexion::obtenerJuegos();
+            Conexion::modificarEstadoUsuario($email, $num);
+            $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
-            $_SESSION['listaJuegos'] = $listaJuegos;
-            header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
+            $_SESSION['listaUsuarios'] = $listaUsuarios;
+            header("Location: ../Vistas/Administrador/Administrar_Usuarios.php");
         }
         
         if (isset($_REQUEST['activo_u'])) {
