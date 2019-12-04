@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 18pt;
+}
+
+@font-face {
+  font-family: "Lazer84";
+  src: url("../fuentes/Lazer84.ttf");
+}
+
+body {
+    background-image: url(../imagenes/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    font-family: "Lazer84";
+    font-size: 30pt;
+    color: deeppink;
+    text-shadow: 
+        0 0 5px rgba(125,21,172,1),
+        0 0 5px rgba(252,15,192,1),
+        0 0 10px rgba(252,15,192,1),
+        0 0 20px rgba(252,15,192,1),
+        0 0 40px rgba(252,15,192,1),
+        0 0 80px rgba(255,70,235,1),
+        0 0 90px rgba(255,70,235,1),
+        0 0 100px rgba(255,70,235,1),
+        0 0 140px rgba(255,70,235,1),
+        0 0 180px rgba(255,70,235,1);
+    ;
+}
+
+.deeppink {
+    color: deeppink;
+}
+
+.cyan {
+    color: cyan;
+}
+
+.principal {
+    background-color: rgba(125,21,172,60%);
+    /*background-color: rgba(255,70,235,25%); */
+}
+
+.titulo {
+    margin: 0px auto;
+}
+
+
