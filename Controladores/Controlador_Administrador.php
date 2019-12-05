@@ -175,11 +175,12 @@ and open the template in the editor.
         }
 
         if (isset($_REQUEST['modificar_u'])) {
-            $codigo = $_REQUEST['codigo'];
-            $descripcion = $_REQUEST ['descripcion'];
-            $titulo = $_REQUEST ['titulo'];
+            $email = $_REQUEST['email'];
+            $nombre = $_REQUEST['nombre'];
+            $apellidos = $_REQUEST['apellidos'];
+            $rol = $_REQUEST['rol'];
             Conexion::abrirBBDD();
-            Conexion::modificarReview($codigo, $descripcion, $titulo);
+            Conexion::modificarUsuario($email, $nombre, $apellidos, $rol);
             $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
             $_SESSION['listaUsuarios'] = $listaUsuarios;
@@ -187,9 +188,9 @@ and open the template in the editor.
         }
 
         if (isset($_REQUEST['borrar_u'])) {
-            $codigo = $_REQUEST['codigo'];
+            $email = $_REQUEST['email'];
             Conexion::abrirBBDD();
-            Conexion::borrarReview($codigo);
+            Conexion::borrarUsuario($email);
             $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
             $_SESSION['listaUsuarios'] = $listaUsuarios;

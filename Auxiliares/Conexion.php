@@ -75,7 +75,7 @@ class Conexion {
      * @param type $pass
      */
     static function insertarUsuario($email, $nombre, $apellidos, $pass) {
-        self::$sentencia = "INSERT INTO usuarios (nombre, apellidos, password, email, cod_rol) VALUES (?, ?, ?, ?, 0)";
+        self::$sentencia = "INSERT INTO usuarios (nombre, apellidos, password, email, cod_rol, estado) VALUES (?, ?, ?, ?, 0, 0)";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "ssss", $nombre, $apellidos, $pass, $email);
         if (mysqli_stmt_execute($stmt)) {
@@ -122,10 +122,10 @@ class Conexion {
      * @param type $nombre
      * @param type $edad
      */
-    static function modificarUsuario($email, $nombre, $apellidos, $pass) {
-        self::$sentencia = "UPDATE usuarios SET nombre = ?, apellidos = ?, password = ? WHERE email = ?";
+    static function modificarUsuario($email, $nombre, $apellidos, $rol) {
+        self::$sentencia = "UPDATE usuarios SET nombre = ?, apellidos = ?, cod_rol = ? WHERE email = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
-        mysqli_stmt_bind_param($stmt, "ssss", $nombre, $apellidos, $pass, $email);
+        mysqli_stmt_bind_param($stmt, "ssis", $nombre, $apellidos, $rol, $email);
         if (mysqli_stmt_execute($stmt)) {
             echo 'Registro modificado con éxito' . '<br/>';
         } else {
