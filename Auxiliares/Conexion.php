@@ -104,6 +104,7 @@ class Conexion {
                         $usuario->setClave($fila[3]);
                         $usuario->setEmail($fila[4]);
                         $usuario->setRol($fila[5]);
+                        $usuario->setEstado($fila[6]);
                         $lista [$i] = $usuario;
                         $i++;
                     }
@@ -261,6 +262,22 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+    }
+    
+    /**
+     * Modifica el estado del usuario. Si está inactivo le cambia el valor de 0 a 1 para activarlo y viceversa.
+     * @param type $codigo
+     * @param type $num
+     */
+    static function modificarEstadoUsuario($codigo, $num) {
+        self::$sentencia = "UPDATE usuarios SET estado = ? WHERE codigo = ?";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro modificado con éxito' . '<br/>';
+        } else {
+            echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
+        }
     }
 }
 

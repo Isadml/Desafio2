@@ -58,7 +58,7 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Reviews.php");
         }
-        
+
         if (isset($_REQUEST['activo_r'])) {
             $codigo = $_REQUEST['codigo'];
             $num = 0;
@@ -69,8 +69,8 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Reviews.php");
         }
-        
-        if (isset($_REQUEST['modificar_r'])){
+
+        if (isset($_REQUEST['modificar_r'])) {
             $codigo = $_REQUEST['codigo'];
             $descripcion = $_REQUEST ['descripcion'];
             $titulo = $_REQUEST ['titulo'];
@@ -81,7 +81,7 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Reviews.php");
         }
-        
+
         if (isset($_REQUEST['borrar_r'])) {
             $codigo = $_REQUEST['codigo'];
             Conexion::abrirBBDD();
@@ -91,8 +91,8 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Reviews.php");
         }
-        
-        if (isset($_REQUEST['add_r'])){
+
+        if (isset($_REQUEST['add_r'])) {
             header("Location: ../Vistas/Usuarios_Registrados/Add_Review.php");
         }
 
@@ -110,7 +110,7 @@ and open the template in the editor.
             $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
-        
+
         if (isset($_REQUEST['activo_j'])) {
             $codigo = $_REQUEST['codigo'];
             $num = 0;
@@ -121,8 +121,8 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
-        
-        if (isset($_REQUEST['modificar_j'])){
+
+        if (isset($_REQUEST['modificar_j'])) {
             $codigo = $_REQUEST['codigo'];
             $descripcion = $_REQUEST ['descripcion'];
             $titulo = $_REQUEST ['titulo'];
@@ -133,7 +133,7 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
-        
+
         if (isset($_REQUEST['borrar_j'])) {
             $codigo = $_REQUEST['codigo'];
             Conexion::abrirBBDD();
@@ -143,63 +143,63 @@ and open the template in the editor.
             $_SESSION['listaReviews'] = $listaReviews;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
-        
-        if (isset($_REQUEST['add_j'])){
+
+        if (isset($_REQUEST['add_j'])) {
             header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR GESTIÓN USUARIOS***************************************************
 //************************************************************************************************************************
 
         if (isset($_REQUEST['inactivo_u'])) {
-            $email = $_REQUEST['email'];
+            $codigo = $_REQUEST['codigo'];
             $num = 1;
             Conexion::abrirBBDD();
-            Conexion::modificarEstadoUsuario($email, $num);
+            Conexion::modificarEstadoUsuario($codigo, $num);
             $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
             $_SESSION['listaUsuarios'] = $listaUsuarios;
             header("Location: ../Vistas/Administrador/Administrar_Usuarios.php");
         }
-        
+
         if (isset($_REQUEST['activo_u'])) {
             $codigo = $_REQUEST['codigo'];
             $num = 0;
             Conexion::abrirBBDD();
-            Conexion::modificarEstadoReview($codigo, $num);
-            $listaReviews = Conexion::obtenerReviews();
+            Conexion::modificarEstadoUsuario($codigo, $num);
+            $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
-            header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
+            $_SESSION['listaUsuarios'] = $listaUsuarios;
+            header("Location: ../Vistas/Administrador/Administrar_Usuarios.php");
         }
-        
-        if (isset($_REQUEST['modificar_u'])){
+
+        if (isset($_REQUEST['modificar_u'])) {
             $codigo = $_REQUEST['codigo'];
             $descripcion = $_REQUEST ['descripcion'];
             $titulo = $_REQUEST ['titulo'];
             Conexion::abrirBBDD();
             Conexion::modificarReview($codigo, $descripcion, $titulo);
-            $listaReviews = Conexion::obtenerReviews();
+            $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
-            header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
+            $_SESSION['listaUsuarios'] = $listaUsuarios;
+            header("Location: ../Vistas/Administrador/Administrar_Usuarios.php");
         }
-        
+
         if (isset($_REQUEST['borrar_u'])) {
             $codigo = $_REQUEST['codigo'];
             Conexion::abrirBBDD();
             Conexion::borrarReview($codigo);
-            $listaReviews = Conexion::obtenerReviews();
+            $listaUsuarios = Conexion::obtenerUsuarios();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
-            header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
+            $_SESSION['listaUsuarios'] = $listaUsuarios;
+            header("Location: ../Vistas/Administrador/Administrar_Usuarios.php");
         }
-        
-        if (isset($_REQUEST['add_u'])){
-            header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
+
+        if (isset($_REQUEST['add_u'])) {
+            header("Location: ../Vistas/Otras/Registro.php");
         }
-        
+
         if (isset($_REQUEST['cerrar'])) {
             session_destroy();
             header("Location: ../index.php");
