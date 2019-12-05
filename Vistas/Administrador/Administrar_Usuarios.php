@@ -11,7 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/estilo.css"/>
         <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
-        <title>Inicio de sesión</title>
+        <title>Administración de usuarios</title>
     </head>
     <body>
         <div class="container-fluid">
@@ -88,11 +88,11 @@ and open the template in the editor.
                         <form action="../../Controladores/Controlador_Administrador.php" name="admin_usuarios" method="POST">
                             <div class="form-group">
                                 <label for="codigo"></label>
-                                <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $r->getCodigo() ?>">
+                                <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $u->getCodigo() ?>">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email: </label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?= $u->getEmail() ?>">
+                                <input type="email" class="form-control" id="email" name="email" value="<?= $u->getEmail() ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombre: </label>
@@ -108,31 +108,31 @@ and open the template in the editor.
                             </div>
                             <?php if ($u->getEstado() == 0){ ?>
                                 <div class="form-group">
-                                <label for="estado"></label>
-                                <button type="submit" class="form-control cyan principal" id="estado" name="estado">Inactivo</button>
+                                <label for="inactivo_u"></label>
+                                <button type="submit" class="form-control cyan principal" id="inactivo_u" name="inactivo_u">Inactivo</button>
                             </div>
                             <?php } else { ?>
                                 <div class="form-group">
-                                <label for="estado"></label>
-                                <button type="submit" class="form-control cyan principal" id="estado" name="estado">Activo</button>
+                                <label for="activo_u"></label>
+                                <button type="submit" class="form-control cyan principal" id="activo_u" name="activo_u">Activo</button>
                             </div>
                             <?php }
                             ?>
                             <div class="form-group">
-                                <label for="modificar"></label>
-                                <button type="submit" class="form-control cyan principal" id="modificar" name="modificar">Modificar</button>
+                                <label for="modificar_u"></label>
+                                <button type="submit" class="form-control cyan principal" id="modificar_u" name="modificar_u">Modificar</button>
                             </div>
                             <div class="form-group">
-                                <label for="borrar"></label>
-                                <button type="submit" class="form-control cyan principal" id="borrar" name="borrar">Borrar</button>
+                                <label for="borrar_u"></label>
+                                <button type="submit" class="form-control cyan principal" id="borrar_u" name="borrar_u">Borrar</button>
                             </div>
                         </form>
 
                     <?php } ?>
                     <form name="add" action="../../Controladores/Controlador_Administrador.php" method="POST">
                         <div class="form-group">
-                            <label for="add"></label>
-                            <button type="submit" class="form-control cyan principal" id="add" name="add">+</button>
+                            <label for="add_u"></label>
+                            <button type="submit" class="form-control cyan principal" id="add_u" name="add_u">+</button>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
