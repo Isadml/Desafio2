@@ -226,7 +226,12 @@ class Conexion {
         }
     }
     
-    
+    /**
+     * Modifica los campos descripción o título de una reseña.
+     * @param type $codigo
+     * @param type $descripcion
+     * @param type $titulo
+     */
     static function modificarReview($codigo, $descripcion, $titulo ) {
         self::$sentencia = "UPDATE reviews SET descripcion = ?, titulo = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
@@ -238,6 +243,33 @@ class Conexion {
         }
     }
     
+    /**
+     * Modifica el estado del usuario. Si está inactivo le cambia el valor de 0 a 1 para activarlo y viceversa.
+     * @param type $codigo
+     * @param type $num
+     */
+    static function modificarEstadoUsuario($codigo, $num) {
+        self::$sentencia = "UPDATE usuarios SET estado = ? WHERE codigo = ?";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro modificado con éxito' . '<br/>';
+        } else {
+            echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
+        }
+    }
+    
+    static function addJuegos ($titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $imagen){
+        self::$sentencia = "INSERT INTO videojuegos (codigo, titulo, anio, pais, productora, resumen, plataformas, genero, estado, imagen) VALUES (0,?, ?, ?, ?, ?, ?, ?, 0, ?)";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "sissssss", $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $imagen);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro insertado con éxito' . '<br/>';
+        } else {
+            echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
+        }
+    }
+        
     static function obtenerJuegos() {
         $lista = array();
         $i = 0;
@@ -262,22 +294,6 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
-    }
-    
-    /**
-     * Modifica el estado del usuario. Si está inactivo le cambia el valor de 0 a 1 para activarlo y viceversa.
-     * @param type $codigo
-     * @param type $num
-     */
-    static function modificarEstadoUsuario($codigo, $num) {
-        self::$sentencia = "UPDATE usuarios SET estado = ? WHERE codigo = ?";
-        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
-        mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
-        if (mysqli_stmt_execute($stmt)) {
-            echo 'Registro modificado con éxito' . '<br/>';
-        } else {
-            echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
-        }
     }
 }
 

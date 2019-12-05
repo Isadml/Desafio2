@@ -15,7 +15,7 @@ and open the template in the editor.
         include_once '../Auxiliares/Conexion.php';
         include_once '../Auxiliares/Usuario.php';
         session_start();
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR ADD JUEGO**********************************************************
 //************************************************************************************************************************
@@ -29,7 +29,7 @@ and open the template in the editor.
             if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 200000)) {
                 //indicamos los formatos que permitimos subir a nuestro servidor
                 if (($_FILES["imagen"]["type"] == "image/gif") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/jpg") || ($_FILES["imagen"]["type"] == "image/png")) {
-                    
+
                     // Ruta donde se guardarán las imágenes que subamos
                     $directorio = $_SERVER['DOCUMENT_ROOT'] . '/Ejercicios/Desafio2_Isabel/imagenes/';
                     // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
@@ -44,18 +44,34 @@ and open the template in the editor.
                     echo 'Error al subir la imagen, tamaño no válido.';
                 }
             }
+
+            $titulo = $_REQUEST['titulo'];
+            $anio = $_REQUEST['anio'];
+            $pais = $_REQUEST['pais'];
+            $productora = $_REQUEST['empresa'];
+            $resumen = $_REQUEST['resumen'];
+            foreach ($plataformas as $dato){
+                $plataform = $plataform + $dato;
+            }
+            
+            $genero  = $_REQUEST['genero'];
+
+            Conexion::abrirBBDD();
+            Conexion::addJuegos($titulo, $anio, $pais, $productora, $resumen, $plataform, $genero, $directorio);
+            Conexion::cerrarBBDD();
+            header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
         }
-        
-        
+
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR EDITAR PERFIL******************************************************
 //************************************************************************************************************************
-        if (isset($_REQUEST['editar'])){
+        if (isset($_REQUEST['editar'])) {
             $email = $_REQUEST['email'];
             $password = $_REQUEST['passw'];
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
-            
+
             Conexion::abrirBBDD();
             Conexion::modificarUsuario($email, $nombre, $apellidos, $password);
             $usuario = Conexion::existeUsuario($email);
@@ -63,22 +79,21 @@ and open the template in the editor.
             Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Editar_Perfil.php");
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR ADD REVIEW*********************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['subir'])){
+
+        if (isset($_REQUEST['subir'])) {
             $user = $_REQUEST['nombre'];
             $titulo = $_REQUEST['titulo'];
             $descripcion = $_REQUEST['descripcion'];
-            
+
             Conexion::abrirBBDD();
-            Conexion::addReview ($user, $titulo, $descripcion);
+            Conexion::addReview($user, $titulo, $descripcion);
             Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Add_Review.php");
         }
-        
         ?>
     </body>
 </html>
