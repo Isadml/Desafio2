@@ -19,7 +19,7 @@ and open the template in the editor.
 //************************************************************************************************************************
 //*****************************************CONTROLADOR ADD JUEGO**********************************************************
 //************************************************************************************************************************
-        if (isset($_REQUEST['aceptar'])) {
+        if (isset($_REQUEST['add_juego'])) {
             // Datos de la imagen
             $nombre_img = $_FILES['imagen']['name'];
             $tipo = $_FILES['imagen']['type'];
@@ -50,14 +50,18 @@ and open the template in the editor.
             $pais = $_REQUEST['pais'];
             $productora = $_REQUEST['empresa'];
             $resumen = $_REQUEST['resumen'];
-            foreach ($plataformas as $dato){
-                $plataform = $plataform + $dato;
+            $plataformas = $_REQUEST['plataforma'];
+            foreach ($plataformas as $dato) {
+                $plataform = $plataform.', '. $dato;
             }
-            
-            $genero  = $_REQUEST['genero'];
+            $imagen = $directorio.$nombre_img;
+            $genero = $_REQUEST['genero'];
+            foreach ($genero as $dato) {
+                $gen = $gen.', '. $dato;
+            }
 
             Conexion::abrirBBDD();
-            Conexion::addJuegos($titulo, $anio, $pais, $productora, $resumen, $plataform, $genero, $directorio);
+            Conexion::addJuegos($titulo, $anio, $pais, $productora, $resumen, $plataform, $gen, $imagen);
             Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
         }

@@ -111,18 +111,16 @@ and open the template in the editor.
                             <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="13">PlayChoice-10<br>
                             <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="14">ZX Spectrum<br>
                         </div>
-                        <div class="form-group">
-                            <label for="genero">Género </label>
-                            <select class="form-control" id="genero">
-                                <option>Arcade</option>
-                                <option>Plataformas</option>
-                                <option>Beat 'em up</option>
-                                <option>Acción</option>
-                                <option>Aventuras</option>
-                                <option>Rol</option>
-                                <option>Simulador de vuelo</option>
-                                <option>Shoot 'em up</option>
-                            </select>
+                        <div class="form-group form-check">
+                            <label for="genero">Género </label><br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="1">Arcade<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="2">Plataformas<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="3">Beat 'em up<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="4">Acción<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="5">Aventuras<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="6">Rol<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="7">Simulador de vuelo<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="8">Shoot 'em up<br>
                         </div>
                         <div class="form-group">
                             <label for="imagen">Imagen </label> 

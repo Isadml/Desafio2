@@ -115,10 +115,10 @@ and open the template in the editor.
             $codigo = $_REQUEST['codigo'];
             $num = 0;
             Conexion::abrirBBDD();
-            Conexion::modificarEstadoReview($codigo, $num);
-            $listaReviews = Conexion::obtenerReviews();
+            Conexion::modificarEstadoJuego($codigo, $num);
+            $listaReviews = Conexion::obtenerJuegos();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
+            $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
 
