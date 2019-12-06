@@ -11,7 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/estilo.css"/>
         <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
-        <title>Inicio de sesión</title>
+        <title>Administración de juegos</title>
     </head>
     <body>
         <div class="container-fluid">
@@ -87,64 +87,64 @@ and open the template in the editor.
                         ?>
                         <form action="../../Controladores/Controlador_Administrador.php" name="admin_juegos" method="POST">
                             <div class="form-group">
-                            <label for="titulo">Título </label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $j ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="anio">Año de publicación </label>
-                            <input type="text" class="form-control" id="anio" name="anio" value="<?= $j ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="pais">País de procedencia </label>
-                            <input type="text" class="form-control" id="pais" name="pais" value="<?= $j ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="empresa">Empresa que lo produjo </label>
-                            <input type="text" class="form-control" id="empresa" name="empresa" value="<?= $j ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="resumen">Resumen </label>
-                            <input type="text" class="form-control" id="resumen" name="resumen" value="<?= $j ?>">
-                        </div>
-                        <div class="form-group form-check">
-                            <label for="plataforma">Plataformas para las que estuvo disponible </label><br>
-<!--                            Añadir las plataformas-->
-                        </div>
-                        <div class="form-group">
-                            <label for="genero">Género </label>
-<!--                            Añadir el género-->
-                        </div>
-                        <div class="form-group">
-                            <label for="imagen">Imagen </label> 
-                            <img/>
-                        </div>
-                            <?php if ($j->getEstado() == 0){ ?>
-                                <div class="form-group">
-                                <label for="estado"></label>
-                                <button type="submit" class="form-control cyan principal" id="estado" name="estado">Inactivo</button>
+                                <label for="codigo"></label>
+                                <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $j->getCodigo() ?>">
                             </div>
+                            <div class="form-group">
+                                <label for="titulo">Título </label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $j->getTitulo() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="anio">Año de publicación </label>
+                                <input type="text" class="form-control" id="anio" name="anio" value="<?= $j->getAnio() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País de procedencia </label>
+                                <input type="text" class="form-control" id="pais" name="pais" value="<?= $j->getPais() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa que lo produjo </label>
+                                <input type="text" class="form-control" id="empresa" name="empresa" value="<?= $j->getProductora() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="resumen">Resumen </label>
+                                <input type="text" class="form-control" id="resumen" name="resumen" value="<?= $j->getResumen() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="plataforma">Plataformas para las que estuvo disponible </label>
+                                <input type="text" class="form-control" id="plataforma" name="plataforma" value="<?= $j->getPlataformas() ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="genero">Género </label>
+                                <input type="text" class="form-control" id="genero" name="genero" value="<?= $j->getGenero() ?>">
+                            </div>
+                            <?php if ($j->getEstado() == 0) { ?>
+                                <div class="form-group">
+                                    <label for="inactivo_j"></label>
+                                    <button type="submit" class="form-control cyan principal" id="inactivo_j" name="inactivo_j">Inactivo</button>
+                                </div>
                             <?php } else { ?>
                                 <div class="form-group">
-                                <label for="estado"></label>
-                                <button type="submit" class="form-control cyan principal" id="estado" name="estado">Activo</button>
-                            </div>
+                                    <label for="activo_j"></label>
+                                    <button type="submit" class="form-control cyan principal" id="activo_j" name="activo_j">Activo</button>
+                                </div>
                             <?php }
                             ?>
                             <div class="form-group">
-                                <label for="modificar"></label>
-                                <button type="submit" class="form-control cyan principal" id="modificar" name="modificar">Modificar</button>
+                                <label for="modificar_j"></label>
+                                <button type="submit" class="form-control cyan principal" id="modificar_j" name="modificar_j">Modificar</button>
                             </div>
                             <div class="form-group">
-                                <label for="borrar"></label>
-                                <button type="submit" class="form-control cyan principal" id="borrar" name="borrar">Borrar</button>
+                                <label for="borrar_j"></label>
+                                <button type="submit" class="form-control cyan principal" id="borrar_j" name="borrar_j">Borrar</button>
                             </div>
                         </form>
 
                     <?php } ?>
                     <form name="add" action="../../Controladores/Controlador_Administrador.php" method="POST">
                         <div class="form-group">
-                            <label for="add"></label>
-                            <button type="submit" class="form-control cyan principal" id="add" name="add">+</button>
+                            <label for="add_j"></label>
+                            <button type="submit" class="form-control cyan principal" id="add_j" name="add_j">+</button>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>

@@ -259,6 +259,17 @@ class Conexion {
         }
     }
     
+    /**
+     * Agrega juegos a la bbdd.
+     * @param type $titulo
+     * @param type $anio
+     * @param type $pais
+     * @param type $productora
+     * @param type $resumen
+     * @param type $plataformas
+     * @param type $genero
+     * @param type $imagen
+     */
     static function addJuegos ($titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $imagen){
         self::$sentencia = "INSERT INTO videojuegos (codigo, titulo, anio, pais, productora, resumen, plataformas, genero, estado, imagen) VALUES (0,?, ?, ?, ?, ?, ?, ?, 0, ?)";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
@@ -270,22 +281,30 @@ class Conexion {
         }
     }
         
+    /**
+     * Obtiene todos los videojuegos almacenados en la bbdd y los devuelve en una lista.
+     * @return \Videojuego
+     */
     static function obtenerJuegos() {
         $lista = array();
         $i = 0;
         try {
-            self::$sentencia = "SELECT * FROM usuarios";
+            self::$sentencia = "SELECT * FROM videojuegos";
             if (self::$resultado = mysqli_query(self::$conex, self::$sentencia)) {
                 if (!empty(self::$resultado)) {
                     while ($fila = mysqli_fetch_array(self::$resultado)) {
-                      $usuario = new Usuario ();
-                        $usuario->setCodigo($fila[0]);
-                        $usuario->setNombre($fila[1]);
-                        $usuario->setApellidos($fila[2]);
-                        $usuario->setClave($fila[3]);
-                        $usuario->setEmail($fila[4]);
-                        $usuario->setRol($fila[5]);
-                        $lista [$i] = $usuario;
+                      $videojuego = new Videojuego ();
+                        $videojuego->setCodigo($fila[0]);
+                        $videojuego->setTitulo($fila[1]);
+                        $videojuego->setAnio($fila[2]);
+                        $videojuego->setPais($fila[3]);
+                        $videojuego->setProductora($fila[4]);
+                        $videojuego->setResumen($fila[5]);
+                        $videojuego->setPlataformas($fila[6]);
+                        $videojuego->setGenero($fila[7]);
+                        $videojuego->setEstado($fila[8]);
+                        $videojuego->setImagen($fila[9]);
+                        $lista [$i] = $videojuego;
                         $i++;
                     }
                 }
@@ -294,6 +313,48 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+    }
+    
+    /**
+     * Cambia el estado del juego activándolo o desactivándolo para aparecer en la web o no.
+     * @param type $codigo
+     * @param type $num
+     */
+    static function modificarEstadoJuego($codigo, $num) {
+        self::$sentencia = "UPDATE videojuegos SET estado = ? WHERE codigo = ?";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro modificado con éxito' . '<br/>';
+        } else {
+            echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
+        }
+    }
+    
+    /**
+     * Elimina juegos de la bbdd con el código del mismo.
+     * @param type $codigo
+     */
+    static function borrarJuego($codigo) {
+        self::$sentencia = "DELETE FROM videojuegos WHERE codigo = ?";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "i", $codigo);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro borrado con éxito' . '<br/>';
+        } else {
+            echo "Error al borrar: " . mysqli_error(self::$conex) . '<br/>';
+        }
+    }
+    
+    static function modificarJuego($codigo, $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero){
+        self::$sentencia = "UPDATE videojuegos SET titulo = ?, anio = ?, pais = ?, productora = ?, resumen = ?, plataformas = ?, genero = ? WHERE codigo = ?";
+        $stmt = mysqli_prepare(self::$conex, self::$sentencia);
+        mysqli_stmt_bind_param($stmt, "sisssssi", $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $codigo);
+        if (mysqli_stmt_execute($stmt)) {
+            echo 'Registro insertado con éxito' . '<br/>';
+        } else {
+            echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
+        }
     }
 }
 

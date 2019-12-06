@@ -13,6 +13,8 @@ and open the template in the editor.
         <?php
         include_once '../Auxiliares/Conexion.php';
         include_once '../Auxiliares/Review.php';
+        include_once '../Auxiliares/Videojuego.php';
+        include_once '../Auxiliares/Usuario.php';
         session_start();
 //************************************************************************************************************************
 //*****************************************CONTROLADOR ACCIÓN*************************************************************
@@ -105,7 +107,7 @@ and open the template in the editor.
             $num = 1;
             Conexion::abrirBBDD();
             Conexion::modificarEstadoJuego($codigo, $num);
-            $listaReviews = Conexion::obtenerJuegos();
+            $listaJuegos = Conexion::obtenerJuegos();
             Conexion::cerrarBBDD();
             $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
@@ -116,31 +118,37 @@ and open the template in the editor.
             $num = 0;
             Conexion::abrirBBDD();
             Conexion::modificarEstadoJuego($codigo, $num);
-            $listaReviews = Conexion::obtenerJuegos();
+            $listaJuegos = Conexion::obtenerJuegos();
             Conexion::cerrarBBDD();
             $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
 
         if (isset($_REQUEST['modificar_j'])) {
+            $titulo = $_REQUEST['titulo'];
+            $anio = $_REQUEST['anio'];
+            $pais = $_REQUEST['pais'];
+            $productora = $_REQUEST['empresa'];
+            $resumen = $_REQUEST['resumen'];
+            $plataformas = $_REQUEST['plataforma'];
+            $genero = $_REQUEST['genero']; 
             $codigo = $_REQUEST['codigo'];
-            $descripcion = $_REQUEST ['descripcion'];
-            $titulo = $_REQUEST ['titulo'];
+            
             Conexion::abrirBBDD();
-            Conexion::modificarReview($codigo, $descripcion, $titulo);
-            $listaReviews = Conexion::obtenerReviews();
+            Conexion::modificarJuego($codigo, $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero);
+            $listaJuegos = Conexion::obtenerJuegos();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
+            $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
 
         if (isset($_REQUEST['borrar_j'])) {
             $codigo = $_REQUEST['codigo'];
             Conexion::abrirBBDD();
-            Conexion::borrarReview($codigo);
-            $listaReviews = Conexion::obtenerReviews();
+            Conexion::borrarJuego($codigo);
+            $listaJuegos = Conexion::obtenerJuegos();
             Conexion::cerrarBBDD();
-            $_SESSION['listaReviews'] = $listaReviews;
+            $_SESSION['listaJuegos'] = $listaJuegos;
             header("Location: ../Vistas/Administrador/Administrar_Juegos.php");
         }
 

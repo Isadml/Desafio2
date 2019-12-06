@@ -98,29 +98,29 @@ and open the template in the editor.
                         </div>
                         <div class="form-group form-check">
                             <label for="plataforma">Plataformas para las que estuvo disponible </label><br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="1">NES<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="2">Arcade<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="3">Atari<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="4">MSX<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="5">Colecovisión<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="8">Amstrad CPC<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="9">SNES<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="10">Commodore Amiga<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="11">Famicom<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="12">Sega<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="13">PlayChoice-10<br>
-                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="14">ZX Spectrum<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="nes">NES<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="arcade">Arcade<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="atari">Atari<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="msx">MSX<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="colecovision">Colecovisión<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="amstrad">Amstrad CPC<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="snes">SNES<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="commodore">Commodore Amiga<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="famicom">Famicom<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="sega">Sega<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="playchoice">PlayChoice-10<br>
+                            <input type="checkbox" class="form-check-input" id="plataforma" name="plataforma[]" value="zxspectrum">ZX Spectrum<br>
                         </div>
                         <div class="form-group form-check">
                             <label for="genero">Género </label><br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="1">Arcade<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="2">Plataformas<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="3">Beat 'em up<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="4">Acción<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="5">Aventuras<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="6">Rol<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="7">Simulador de vuelo<br>
-                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="8">Shoot 'em up<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="arcade">Arcade<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="plataformas">Plataformas<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="beat">Beat 'em up<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="accion">Acción<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="aventuras">Aventuras<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="rol">Rol<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="vuelo">Simulador de vuelo<br>
+                            <input type="checkbox" class="form-check-input" id="genero" name="genero[]" value="shoot">Shoot 'em up<br>
                         </div>
                         <div class="form-group">
                             <label for="imagen">Imagen </label> 
