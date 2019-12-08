@@ -346,6 +346,17 @@ class Conexion {
         }
     }
     
+    /**
+     * Edita la información de un juego usando su código para acceder a él en la bbdd.
+     * @param type $codigo
+     * @param type $titulo
+     * @param type $anio
+     * @param type $pais
+     * @param type $productora
+     * @param type $resumen
+     * @param type $plataformas
+     * @param type $genero
+     */
     static function modificarJuego($codigo, $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero){
         self::$sentencia = "UPDATE videojuegos SET titulo = ?, anio = ?, pais = ?, productora = ?, resumen = ?, plataformas = ?, genero = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
@@ -355,6 +366,106 @@ class Conexion {
         } else {
             echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
         }
+    }
+    
+    /**
+     * Selecciona los juegos que contienen en su título la palabra o palabras que se le pasa en la variable $nombre.
+     * @param type $nombre
+     * @return \Videojuego
+     */
+    static function buscarJuegosNombre ($nombre) {
+        $lista = array();
+        $i = 0;
+        try {
+            self::$sentencia = "SELECT * FROM videojuegos WHERE titulo LIKE ('%$nombre%')";
+            if (self::$resultado = mysqli_query(self::$conex, self::$sentencia)) {
+                if (!empty(self::$resultado)) {
+                    while ($fila = mysqli_fetch_array(self::$resultado)) {
+                      $videojuego = new Videojuego ();
+                        $videojuego->setCodigo($fila[0]);
+                        $videojuego->setTitulo($fila[1]);
+                        $videojuego->setAnio($fila[2]);
+                        $videojuego->setPais($fila[3]);
+                        $videojuego->setProductora($fila[4]);
+                        $videojuego->setResumen($fila[5]);
+                        $videojuego->setPlataformas($fila[6]);
+                        $videojuego->setGenero($fila[7]);
+                        $videojuego->setEstado($fila[8]);
+                        $videojuego->setImagen($fila[9]);
+                        $lista [$i] = $videojuego;
+                        $i++;
+                    }
+                }
+            }
+        } catch (Exception $ex) {
+            print "Error en el acceso a la BD.";
+        }
+        return $lista;
+    }
+    
+    /**
+     * Permite buscar videojuegos según ls plataformas para las que estuvieron disponibles.
+     * @param type $plataforma
+     * @return \Videojuego
+     */
+    static function buscarJuegosPlataforma ($plataforma) {
+        $lista = array();
+        $i = 0;
+        try {
+            self::$sentencia = "SELECT * FROM videojuegos WHERE plataformas LIKE ('%$plataforma%')";
+            if (self::$resultado = mysqli_query(self::$conex, self::$sentencia)) {
+                if (!empty(self::$resultado)) {
+                    while ($fila = mysqli_fetch_array(self::$resultado)) {
+                      $videojuego = new Videojuego ();
+                        $videojuego->setCodigo($fila[0]);
+                        $videojuego->setTitulo($fila[1]);
+                        $videojuego->setAnio($fila[2]);
+                        $videojuego->setPais($fila[3]);
+                        $videojuego->setProductora($fila[4]);
+                        $videojuego->setResumen($fila[5]);
+                        $videojuego->setPlataformas($fila[6]);
+                        $videojuego->setGenero($fila[7]);
+                        $videojuego->setEstado($fila[8]);
+                        $videojuego->setImagen($fila[9]);
+                        $lista [$i] = $videojuego;
+                        $i++;
+                    }
+                }
+            }
+        } catch (Exception $ex) {
+            print "Error en el acceso a la BD.";
+        }
+        return $lista;
+    }
+    
+    static function buscarJuegosGenero ($genero) {
+        $lista = array();
+        $i = 0;
+        try {
+            self::$sentencia = "SELECT * FROM videojuegos WHERE genero LIKE ('%$genero%')";
+            if (self::$resultado = mysqli_query(self::$conex, self::$sentencia)) {
+                if (!empty(self::$resultado)) {
+                    while ($fila = mysqli_fetch_array(self::$resultado)) {
+                      $videojuego = new Videojuego ();
+                        $videojuego->setCodigo($fila[0]);
+                        $videojuego->setTitulo($fila[1]);
+                        $videojuego->setAnio($fila[2]);
+                        $videojuego->setPais($fila[3]);
+                        $videojuego->setProductora($fila[4]);
+                        $videojuego->setResumen($fila[5]);
+                        $videojuego->setPlataformas($fila[6]);
+                        $videojuego->setGenero($fila[7]);
+                        $videojuego->setEstado($fila[8]);
+                        $videojuego->setImagen($fila[9]);
+                        $lista [$i] = $videojuego;
+                        $i++;
+                    }
+                }
+            }
+        } catch (Exception $ex) {
+            print "Error en el acceso a la BD.";
+        }
+        return $lista;
     }
 }
 

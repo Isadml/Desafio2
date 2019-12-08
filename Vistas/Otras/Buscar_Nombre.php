@@ -86,8 +86,8 @@ and open the template in the editor.
                             <label for="buscar_n"></label>
                             <button type="submit" class="form-control cyan principal" id="buscar_n" name="buscar_n">Buscar juego</button>
                         </div>
-                     </form>
-                    
+                    </form>
+
                 </div>
                 <div class="col-4 mt-3 mb-2"></div>
             </div>

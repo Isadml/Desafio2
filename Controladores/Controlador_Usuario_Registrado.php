@@ -54,7 +54,7 @@ and open the template in the editor.
             foreach ($plataformas as $dato) {
                 $plataform = $plataform.', '. $dato;
             }
-            $imagen = $directorio.$nombre_img;
+            $imagen = "../../imagenes/".$nombre_img;
             $genero = $_REQUEST['genero'];
             foreach ($genero as $dato) {
                 $gen = $gen.', '. $dato;

@@ -118,6 +118,10 @@ and open the template in the editor.
                                 <label for="genero">Género </label>
                                 <input type="text" class="form-control" id="genero" name="genero" value="<?= $j->getGenero() ?>">
                             </div>
+                             <div class="form-group">
+                                <label for="imagen">Imagen </label>
+                                <img src="<?= $j->getImagen()?>">
+                            </div>
                             <?php if ($j->getEstado() == 0) { ?>
                                 <div class="form-group">
                                     <label for="inactivo_j"></label>

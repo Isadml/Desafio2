@@ -13,6 +13,8 @@ and open the template in the editor.
         <?php
         include_once '../Auxiliares/Conexion.php';
         include_once '../Auxiliares/Usuario.php';
+        include_once '../Auxiliares/Review.php';
+        include_once '../Auxiliares/Videojuego.php';
         session_start();
 
 //************************************************************************************************************************
@@ -84,6 +86,45 @@ and open the template in the editor.
                     echo "No se ha podido mandar el email de recuperación de contraseña.";
                 }
             }
+        }
+        
+//************************************************************************************************************************
+//*****************************************CONTROLADOR BUSCAR NOMBRE******************************************************
+//************************************************************************************************************************
+        
+        if (isset($_REQUEST['buscar_n'])){
+            $nombre = $_REQUEST ['titulo'];
+            Conexion::abrirBBDD();
+            $juegos = Conexion::buscarJuegosNombre ($nombre);
+            Conexion::cerrarBBDD();
+            $_SESSION['juegos'] = $juegos;
+            header("Location: ../Vistas/Otras/Resultados.php");
+        }
+        
+//************************************************************************************************************************
+//*****************************************CONTROLADOR BUSCAR GENERO******************************************************
+//************************************************************************************************************************
+        
+        if (isset($_REQUEST['buscar_g'])){
+            $genero = $_REQUEST ['genero'];
+            Conexion::abrirBBDD();
+            $juegos = Conexion::buscarJuegosGenero ($genero);
+            Conexion::cerrarBBDD();
+            $_SESSION['juegos'] = $juegos;
+            header("Location: ../Vistas/Otras/Resultados.php");
+        }
+        
+//************************************************************************************************************************
+//*****************************************CONTROLADOR BUSCAR PLATAFORMA**************************************************
+//************************************************************************************************************************
+        
+        if (isset($_REQUEST['buscar_p'])){
+            $plataforma = $_REQUEST ['plataforma'];
+            Conexion::abrirBBDD();
+            $juegos = Conexion::buscarJuegosPlataforma ($plataforma);
+            Conexion::cerrarBBDD();
+            $_SESSION['juegos'] = $juegos;
+            header("Location: ../Vistas/Otras/Resultados.php");
         }
         
         ?>

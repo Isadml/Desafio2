@@ -78,18 +78,16 @@ and open the template in the editor.
                     <h3>Buscar por género</h3>
                     
                     <form name="buscar_genero" action="../../Controladores/Controlador_general.php" method="POST">
-                        <div class="form-group">
-                            <label for="genero">Género </label>
-                            <select class="form-control" id="genero">
-                                <option>Arcade</option>
-                                <option>Plataformas</option>
-                                <option>Beat 'em up</option>
-                                <option>Acción</option>
-                                <option>Aventuras</option>
-                                <option>Rol</option>
-                                <option>Simulador de vuelo</option>
-                                <option>Shoot 'em up</option>
-                            </select>
+                        <div class="form-group form-check">
+                            <label for="genero">Elige el género que deseas buscar </label><br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Arcade">Arcade<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Plataformas">Plataformas<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Beat">Beat 'em up<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Accion">Acción<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Aventuras">Aventuras<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Rol">Rol<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Simulador de vuelo">Simulador de vuelo<br>
+                            <input type="radio" class="form-check-input" id="genero" name="genero" value="Shoot">Shoot 'em up<br>
                         </div>
                         <div class="form-group">
                             <label for="buscar_g"></label>

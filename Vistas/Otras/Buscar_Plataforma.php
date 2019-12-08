@@ -80,22 +80,22 @@ and open the template in the editor.
                     <form name="buscar_genero" action="../../Controladores/Controlador_general.php" method="POST">
                         <div class="form-group form-check">
                             <label for="plataforma">Elige la plataforma que deseas buscar </label><br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="1">NES<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="2">Arcade<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="3">Atari<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="4">MSX<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="5">Colecovisión<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="8">Amstrad CPC<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="9">SNES<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="10">Commodore Amiga<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="11">Famicom<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="12">Sega<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="13">PlayChoice-10<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="14">ZX Spectrum<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="NES">NES<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Arcade">Arcade<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Atari">Atari<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="MSX">MSX<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Colecovisión">Colecovisión<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Amstrad CPC">Amstrad CPC<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="SNES">SNES<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Commodore Amiga">Commodore Amiga<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Famicom">Famicom<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Sega">Sega<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="PlayChoice-10">PlayChoice-10<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="ZX Spectrum">ZX Spectrum<br>
                         </div>
                         <div class="form-group">
-                            <label for="buscar_g"></label>
-                            <button type="submit" class="form-control cyan principal" id="buscar_g" name="buscar_g">Buscar juegos</button>
+                            <label for="buscar_p"></label>
+                            <button type="submit" class="form-control cyan principal" id="buscar_p" name="buscar_p">Buscar juegos</button>
                         </div>
                      </form>
 
