@@ -12,9 +12,9 @@ and open the template in the editor.
     <body>
         <?php
         include_once '../Auxiliares/Conexion.php';
-        include_once '../Auxiliares/Usuario.php';
-        include_once '../Auxiliares/Review.php';
-        include_once '../Auxiliares/Videojuego.php';
+        include_once '../Modelo/Usuario.php';
+        include_once '../Modelo/Review.php';
+        include_once '../Modelo/Videojuego.php';
         session_start();
 
 //************************************************************************************************************************

@@ -11,9 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include_once '../Auxiliares/Videojuego.php';
-        include_once '../Auxiliares/Conexion.php';
-        include_once '../Auxiliares/Usuario.php';
+        include_once '../Modelo/Videojuego.php';
+        include_once '../Modelo/Conexion.php';
+        include_once '../Modelo/Usuario.php';
         session_start();
 
 //************************************************************************************************************************
@@ -97,6 +97,11 @@ and open the template in the editor.
             Conexion::addReview($user, $titulo, $descripcion);
             Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Add_Review.php");
+        }
+        
+        if (isset($_REQUEST['cerrar'])) {
+            session_destroy();
+            header("Location: ../index.php");
         }
         ?>
     </body>

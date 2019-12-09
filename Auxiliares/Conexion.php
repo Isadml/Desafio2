@@ -1,9 +1,9 @@
 <?php
 
 include_once 'Constantes.php';
-include_once 'Usuario.php';
-include_once 'Videojuego.php';
-include_once 'Review.php';
+include_once '../Modelo/Usuario.php';
+include_once '../Modelo/Videojuego.php';
+include_once '../Modelo/Review.php';
 
 /**
  * Description of Conexion

@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include_once '../../Auxiliares/Videojuego.php';
+        include_once '../../Modelo/Videojuego.php';
         session_start();
         $juegos = $_SESSION ['juegos'];
         for ($i = 0; $i < count($juegos); $i++) {

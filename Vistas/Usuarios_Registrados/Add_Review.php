@@ -11,6 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/estilo.css"/>
         <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="../../miJavaScript.js"></script>
         <title>Añadir reseña</title>
     </head>
     <body>
@@ -78,29 +79,45 @@ and open the template in the editor.
                     <h3>Añadir reseña</h3>
 
                     <?php
-                    include_once '../../Auxiliares/Usuario.php';
+                    include_once '../../Modelo/Usuario.php';
                     session_start();
                     $usuario = $_SESSION ['user'];
-                    ?>
+                     if (!empty($usuario)) {
+                        ?>
 
-                    <form name="add_review" action="../../Controladores/Controlador_Usuario_Registrado.php" method="POST">
-                        <div class="form-group">
-                            <label for="nombre">Nombre </label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $usuario->getNombre() ?>" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="titulo">Título </label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Escribe el título del juego">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Descripción </label>
-                            <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escribe tu reseña" maxlength="10000">
-                        </div>
-                        <div class="form-group">
-                            <label for="subir"></label>
-                            <button type="submit" class="form-control cyan principal" id="subir" name="subir">Subir reseña</button>
-                        </div>
-                    </form>
+                        <form name="add_review" action="../../Controladores/Controlador_Usuario_Registrado.php" method="POST">
+                            <div class="form-group">
+                                <label for="nombre">Nombre </label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $usuario->getNombre() ?>" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="titulo">Título </label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Escribe el título del juego">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción </label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escribe tu reseña" maxlength="10000">
+                            </div>
+                            <div class="form-group">
+                                <label for="subir"></label>
+                                <button type="submit" class="form-control cyan principal" id="subir" name="subir">Subir reseña</button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
+                            </div>
+                        </form>
+
+                    <?php
+                    } else {
+                        echo 'No tiene permisos para acceder a esta página.';
+                    }
+                    ?>
+                    
+                    <div class="form-group">
+                        <label for="volver"></label>
+                        <input type="submit" id="volver" name="volver" class="cyan principal" value="Volver" onclick="pag_Anterior()">
+                    </div>
 
                 </div>
                 <div class="col-4 mt-3 mb-2"></div>
