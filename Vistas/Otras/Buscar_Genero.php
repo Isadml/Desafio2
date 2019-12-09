@@ -11,6 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/estilo.css"/>
         <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="../../miJavaScript.js"></script>
         <title>Inicio de sesión</title>
     </head>
     <body>
@@ -94,6 +95,11 @@ and open the template in the editor.
                             <button type="submit" class="form-control cyan principal" id="buscar_g" name="buscar_g">Buscar juegos</button>
                         </div>
                      </form>
+                    
+                    <div class="form-group">
+                        <label for="volver"></label>
+                        <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
+                    </div>
 
                 </div>
                 <div class="col-4 mt-3 mb-2"></div>

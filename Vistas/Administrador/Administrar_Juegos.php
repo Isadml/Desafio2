@@ -167,7 +167,7 @@ and open the template in the editor.
                     
                     <div class="form-group">
                         <label for="volver"></label>
-                        <input type="submit" id="volver" name="volver" class="cyan principal" value="Volver" onclick="pag_Anterior()">
+                        <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
                     </div>
 
                 </div>

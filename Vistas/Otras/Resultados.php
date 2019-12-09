@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <script type="text/javascript" src="../../miJavaScript.js"></script>
+        <title>Resultados de la búsqueda</title>
     </head>
     <body>
         <?php
@@ -20,5 +21,9 @@ and open the template in the editor.
             <a> <?php echo $juego->getTitulo(); ?></a></br> 
         <?php }
         ?>
+        <div class="form-group">
+            <label for="volver"></label>
+            <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
+        </div>
     </body>
 </html>
