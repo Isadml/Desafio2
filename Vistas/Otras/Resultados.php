@@ -49,7 +49,8 @@ and open the template in the editor.
                     for ($i = 0; $i < count($juegos); $i++) {
                         $juego = $juegos [$i];
                         ?>
-                    <a><input class="form-control cyan principal" type="button" value="<?= $juego->getTitulo() ?>"></a></br> 
+                        <input class="form-control cyan principal" data-toggle="modal" data-target="#juego" type="button" value="<?= $juego->getTitulo() ?>"></br> 
+
                     <?php }
                     ?>
                     <div class="form-group">
@@ -71,6 +72,28 @@ and open the template in the editor.
             </div>
 
         </div>
+
+            <div class="modal" id="juego">
+                <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content fondo cyan">
+                        <div class="modal-header">
+                            <div class="modal-title">
+                                <h2><?= $juego->getTitulo() ?></h2>
+                                <img src="<?= $juego->getImagen() ?>" width="300px">
+                            </div>            
+                        </div>
+                        <div class="modal-body">
+                            Argumento: <?= $juego->getResumen() ?></br></br>
+                            Año: <?= $juego->getAnio() ?></br></br> 
+                            País: <?= $juego->getPais() ?></br></br> 
+                            Géneros: <?= $juego->getGenero() ?></br></br>
+                            Producido por: <?= $juego->getProductora() ?></br></br>
+                            Plataformas para las que estuvo disponible: <?= $juego->getPlataformas() ?></br></br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
