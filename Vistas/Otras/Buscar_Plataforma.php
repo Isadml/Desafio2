@@ -32,8 +32,7 @@ and open the template in the editor.
                 <nav>
                     <div class="breadcrumb principal">
                         <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
-                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
-                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados" class="deeppink">Usuarios registrados</a></div>
+                        <div class="breadcrumb-item"><a href="#" class="deeppink">Juegos</a></div>
                         <div class="breadcrumb-item active"><a href="#" class="deeppink">Buscar por plataforma</a></div>
                     </div>
                 </nav>
@@ -51,7 +50,7 @@ and open the template in the editor.
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Arcade">Arcade<br>
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Atari">Atari<br>
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="MSX">MSX<br>
-                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Colecovisión">Colecovisión<br>
+                            <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Colecovision">Colecovisión<br>
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Amstrad CPC">Amstrad CPC<br>
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="SNES">SNES<br>
                             <input type="radio" class="form-check-input" id="plataforma" name="plataforma" value="Commodore Amiga">Commodore Amiga<br>

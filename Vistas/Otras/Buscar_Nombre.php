@@ -32,8 +32,7 @@ and open the template in the editor.
                 <nav>
                     <div class="breadcrumb principal">
                         <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
-                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
-                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados" class="deeppink">Usuarios registrados</a></div>
+                        <div class="breadcrumb-item"><a href="#" class="deeppink">Juegos</a></div>
                         <div class="breadcrumb-item active"><a href="#" class="deeppink">Buscar por nombre</a></div>
                     </div>
                 </nav>

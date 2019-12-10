@@ -21,33 +21,23 @@ and open the template in the editor.
                     <header>
                         <?php
                         include_once '../../cabecera.php';
+                        include_once '../../Modelo/Videojuego.php';
+                        session_start();
+                        $juegos = $_SESSION ['juegos'];
                         ?>
                     </header>
                 </div>
             </div>
 
             <?php include_once '../../menu.php'; ?> 
-            
-            <div class="row">
-                <nav>
-                    <div class="breadcrumb principal">
-                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
-                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
-                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados/" class="deeppink">Usuarios registrados</a></div>
-                        <div class="breadcrumb-item"><a href="../Otras/Buscar_Genero.php" class="deeppink">Búsqueda</a></div>
-                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Resultados de búsqueda</a></div>
-                    </div>
-                </nav>
-            </div>
 
             <div class="row">
                 <nav>
                     <div class="breadcrumb principal">
                         <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
-                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
-                        <div class="breadcrumb-item"><a href="../Administrador/" class="deeppink">Administración</a></div>
-                        <div class="breadcrumb-item"><a href="../Administrador/Elegir_Accion.php" class="deeppink">Elegir acción</a></div>
-                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Administrar juegos</a></div>
+                        <div class="breadcrumb-item"><a href="#" class="deeppink">Juegos</a></div>
+                        <div class="breadcrumb-item"><a href="#" class="deeppink">Búsqueda</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Resultados de búsqueda</a></div>
                     </div>
                 </nav>
             </div>
@@ -56,13 +46,10 @@ and open the template in the editor.
                 <div class="col-4 "></div>
                 <div class="col-4 mt-2 mb-2 cyan">
                     <?php
-                    include_once '../../Modelo/Videojuego.php';
-                    session_start();
-                    $juegos = $_SESSION ['juegos'];
                     for ($i = 0; $i < count($juegos); $i++) {
                         $juego = $juegos [$i];
                         ?>
-                        <a> <?php echo $juego->getTitulo(); ?></a></br> 
+                    <a><input class="form-control cyan principal" type="button" value="<?= $juego->getTitulo() ?>"></a></br> 
                     <?php }
                     ?>
                     <div class="form-group">
