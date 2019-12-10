@@ -23,6 +23,7 @@ and open the template in the editor.
         if (isset($_REQUEST['aceptar'])) {
             $email = $_REQUEST ['email'];
             $password = $_REQUEST['passw'];
+            $pasword_encriptado = md5($password);
 
             $usuario = Conexion::existeUsuario($email);
 
@@ -31,7 +32,7 @@ and open the template in the editor.
                 $clave = $usuario->getClave();
                 $_SESSION['user'] = $usuario;
 
-                if ($em == $email && $clave == $password) {
+                if ($em == $email && $clave == $pasword_encriptado) {
                     if ($usuario->getRol() == 1) {
                         header("Location: ../Vistas/Usuarios_Registrados/Editar_Perfil.php");
                     } else {
@@ -52,10 +53,11 @@ and open the template in the editor.
         if (isset($_REQUEST['registro'])){
             $email = $_REQUEST['email'];
             $password = $_REQUEST['passw'];
+            $pasword_encriptado = md5($pass);
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
             
-            Conexion::insertarUsuario($email, $nombre, $apellidos, $password);
+            Conexion::insertarUsuario($email, $nombre, $apellidos, $pasword_encriptado);
             
             header("Location: ../index.php");
         }

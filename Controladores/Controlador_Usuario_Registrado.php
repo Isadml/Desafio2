@@ -72,10 +72,11 @@ and open the template in the editor.
         if (isset($_REQUEST['editar'])) {
             $email = $_REQUEST['email'];
             $password = $_REQUEST['passw'];
+            $pasword_encriptado = md5($pass);
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
 
-            Conexion::modificarUsuario($email, $nombre, $apellidos, $password);
+            Conexion::modificarUsuario($email, $nombre, $apellidos, $pasword_encriptado);
             $usuario = Conexion::existeUsuario($email);
             $_SESSION['user'] = $usuario;
             header("Location: ../Vistas/Usuarios_Registrados/Editar_Perfil.php");
