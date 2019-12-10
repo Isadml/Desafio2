@@ -45,6 +45,7 @@ class Conexion {
      * @param string $usuario
      */
     static function existeUsuario($email) {
+        Conexion::abrirBBDD();
         try {
             self::$sentencia = "SELECT * FROM usuarios WHERE email = ?";
             $stmt = mysqli_prepare(self::$conex, self::$sentencia);
@@ -65,6 +66,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $usuario;
+        Conexion::cerrarBBDD();
     }
 
     /**
@@ -75,6 +77,7 @@ class Conexion {
      * @param type $pass
      */
     static function insertarUsuario($email, $nombre, $apellidos, $pass) {
+        Conexion::abrirBBDD();
         self::$sentencia = "INSERT INTO usuarios (nombre, apellidos, password, email, cod_rol, estado) VALUES (?, ?, ?, ?, 0, 0)";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "ssss", $nombre, $apellidos, $pass, $email);
@@ -83,6 +86,7 @@ class Conexion {
         } else {
             echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
 
     /**
@@ -90,6 +94,7 @@ class Conexion {
      * @return \Usuario
      */
     static function obtenerUsuarios() {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -114,6 +119,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
 
     /**
@@ -123,6 +129,7 @@ class Conexion {
      * @param type $edad
      */
     static function modificarUsuario($email, $nombre, $apellidos, $rol) {
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE usuarios SET nombre = ?, apellidos = ?, cod_rol = ? WHERE email = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "ssis", $nombre, $apellidos, $rol, $email);
@@ -131,6 +138,7 @@ class Conexion {
         } else {
             echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
 
     /**
@@ -138,6 +146,7 @@ class Conexion {
      * @param type $email
      */
     static function borrarUsuario($email) {
+        Conexion::abrirBBDD();
         self::$sentencia = "DELETE FROM usuarios WHERE email = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -146,6 +155,7 @@ class Conexion {
         } else {
             echo "Error al borrar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -156,6 +166,7 @@ class Conexion {
      * @param type $descripcion
      */
     static function addReview($nombre, $titulo, $descripcion) {
+        Conexion::abrirBBDD();
         self::$sentencia = "INSERT INTO reviews (usuario, descripcion, titulo, estado) VALUES (?, ?, ?, 0)";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "sss", $nombre, $descripcion,  $titulo);
@@ -164,6 +175,7 @@ class Conexion {
         } else {
             echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -171,6 +183,7 @@ class Conexion {
      * @return \Review
      */
     static function obtenerReviews() {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -193,6 +206,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -200,6 +214,7 @@ class Conexion {
      * @param type $codigo
      */
     static function borrarReview($codigo) {
+        Conexion::abrirBBDD();
         self::$sentencia = "DELETE FROM reviews WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "i", $codigo);
@@ -208,6 +223,7 @@ class Conexion {
         } else {
             echo "Error al borrar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -216,6 +232,7 @@ class Conexion {
      * @param type $num
      */
     static function modificarEstadoReview($codigo, $num) {
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE reviews SET estado = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "ii", $num, $codigo);
@@ -224,6 +241,7 @@ class Conexion {
         } else {
             echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -233,6 +251,7 @@ class Conexion {
      * @param type $titulo
      */
     static function modificarReview($codigo, $descripcion, $titulo ) {
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE reviews SET descripcion = ?, titulo = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "ssi", $descripcion, $titulo, $codigo);
@@ -241,6 +260,7 @@ class Conexion {
         } else {
             echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -249,6 +269,7 @@ class Conexion {
      * @param type $num
      */
     static function modificarEstadoUsuario($codigo, $num) {
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE usuarios SET estado = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
@@ -257,6 +278,7 @@ class Conexion {
         } else {
             echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -271,6 +293,7 @@ class Conexion {
      * @param type $imagen
      */
     static function addJuegos ($titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $imagen){
+        Conexion::abrirBBDD();
         self::$sentencia = "INSERT INTO videojuegos (codigo, titulo, anio, pais, productora, resumen, plataformas, genero, estado, imagen) VALUES (0,?, ?, ?, ?, ?, ?, ?, 0, ?)";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "sissssss", $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $imagen);
@@ -279,6 +302,7 @@ class Conexion {
         } else {
             echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
         
     /**
@@ -286,6 +310,7 @@ class Conexion {
      * @return \Videojuego
      */
     static function obtenerJuegos() {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -313,6 +338,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -321,6 +347,7 @@ class Conexion {
      * @param type $num
      */
     static function modificarEstadoJuego($codigo, $num) {
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE videojuegos SET estado = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "is", $num, $codigo);
@@ -329,6 +356,7 @@ class Conexion {
         } else {
             echo "Error al modificar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -336,6 +364,7 @@ class Conexion {
      * @param type $codigo
      */
     static function borrarJuego($codigo) {
+        Conexion::abrirBBDD();
         self::$sentencia = "DELETE FROM videojuegos WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "i", $codigo);
@@ -344,6 +373,7 @@ class Conexion {
         } else {
             echo "Error al borrar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -358,6 +388,7 @@ class Conexion {
      * @param type $genero
      */
     static function modificarJuego($codigo, $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero){
+        Conexion::abrirBBDD();
         self::$sentencia = "UPDATE videojuegos SET titulo = ?, anio = ?, pais = ?, productora = ?, resumen = ?, plataformas = ?, genero = ? WHERE codigo = ?";
         $stmt = mysqli_prepare(self::$conex, self::$sentencia);
         mysqli_stmt_bind_param($stmt, "sisssssi", $titulo, $anio, $pais, $productora, $resumen, $plataformas, $genero, $codigo);
@@ -366,6 +397,7 @@ class Conexion {
         } else {
             echo "Error al insertar: " . mysqli_error(self::$conex) . '<br/>';
         }
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -374,6 +406,7 @@ class Conexion {
      * @return \Videojuego
      */
     static function buscarJuegosNombre ($nombre) {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -401,6 +434,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
     
     /**
@@ -409,6 +443,7 @@ class Conexion {
      * @return \Videojuego
      */
     static function buscarJuegosPlataforma ($plataforma) {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -436,9 +471,11 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
     
     static function buscarJuegosGenero ($genero) {
+        Conexion::abrirBBDD();
         $lista = array();
         $i = 0;
         try {
@@ -466,6 +503,7 @@ class Conexion {
             print "Error en el acceso a la BD.";
         }
         return $lista;
+        Conexion::cerrarBBDD();
     }
 }
 

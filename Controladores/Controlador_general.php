@@ -24,9 +24,7 @@ and open the template in the editor.
             $email = $_REQUEST ['email'];
             $password = $_REQUEST['passw'];
 
-            Conexion::abrirBBDD();
             $usuario = Conexion::existeUsuario($email);
-            Conexion::cerrarBBDD();
 
             if (!empty($usuario)) {
                 $em = $usuario->getEmail();
@@ -57,9 +55,7 @@ and open the template in the editor.
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
             
-            Conexion::abrirBBDD();
             Conexion::insertarUsuario($email, $nombre, $apellidos, $password);
-            Conexion::cerrarBBDD();
             
             header("Location: ../index.php");
         }
@@ -70,9 +66,9 @@ and open the template in the editor.
         
         if (isset($_REQUEST['aceptar_email'])){
             $email = $_REQUEST['email'];
-            Conexion::abrirBBDD();
+
             $u = Conexion::existeUsuario($email);
-            Conexion::cerrarBBDD();
+
             if (!empty($u)) {
                 $from = "From: auxiliardaw2@gmail.com";
                 $clave = "Chubaca20";
@@ -94,9 +90,9 @@ and open the template in the editor.
         
         if (isset($_REQUEST['buscar_n'])){
             $nombre = $_REQUEST ['titulo'];
-            Conexion::abrirBBDD();
+
             $juegos = Conexion::buscarJuegosNombre ($nombre);
-            Conexion::cerrarBBDD();
+
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }
@@ -107,9 +103,9 @@ and open the template in the editor.
         
         if (isset($_REQUEST['buscar_g'])){
             $genero = $_REQUEST ['genero'];
-            Conexion::abrirBBDD();
+
             $juegos = Conexion::buscarJuegosGenero ($genero);
-            Conexion::cerrarBBDD();
+
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }
@@ -120,9 +116,9 @@ and open the template in the editor.
         
         if (isset($_REQUEST['buscar_p'])){
             $plataforma = $_REQUEST ['plataforma'];
-            Conexion::abrirBBDD();
+
             $juegos = Conexion::buscarJuegosPlataforma ($plataforma);
-            Conexion::cerrarBBDD();
+
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }

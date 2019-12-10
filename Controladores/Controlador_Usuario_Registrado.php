@@ -60,9 +60,8 @@ and open the template in the editor.
                 $gen = $gen.', '. $dato;
             }
 
-            Conexion::abrirBBDD();
             Conexion::addJuegos($titulo, $anio, $pais, $productora, $resumen, $plataform, $gen, $imagen);
-            Conexion::cerrarBBDD();
+
             header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
         }
 
@@ -76,11 +75,9 @@ and open the template in the editor.
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
 
-            Conexion::abrirBBDD();
             Conexion::modificarUsuario($email, $nombre, $apellidos, $password);
             $usuario = Conexion::existeUsuario($email);
             $_SESSION['user'] = $usuario;
-            Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Editar_Perfil.php");
         }
 
@@ -93,9 +90,7 @@ and open the template in the editor.
             $titulo = $_REQUEST['titulo'];
             $descripcion = $_REQUEST['descripcion'];
 
-            Conexion::abrirBBDD();
             Conexion::addReview($user, $titulo, $descripcion);
-            Conexion::cerrarBBDD();
             header("Location: ../Vistas/Usuarios_Registrados/Add_Review.php");
         }
         
