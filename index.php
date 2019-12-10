@@ -27,10 +27,44 @@ and open the template in the editor.
 
             <?php include_once 'menu.php'; ?> 
 
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Inicio</a></div>
+                    </div>
+                </nav>
+            </div>
+
             <div class="row mt-2 mb-2 principal">
                 <div class="col-1 mt-2 mb-2"></div>
-                <div class="col-4 mt-2 mb-2">
-                    <img src="imagenes/index2.jpeg" width="400px">
+                <div class="col-4 mt-3 mb-2">
+
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="imagenes/index2.jpeg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/04FamicomCategoria.jpg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/840_560.jpg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/exposición-videojuegos-Valencia-scaled.jpg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/index1.jpg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/NES.jpg" width="400px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/videojuegos-juego-consola-casette.png" width="400px">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-2 mt-2 mb-2"></div>
                 <div class="col-4 mt-3 mb-2 cyan">

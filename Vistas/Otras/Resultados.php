@@ -27,7 +27,30 @@ and open the template in the editor.
             </div>
 
             <?php include_once '../../menu.php'; ?> 
+            
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados/" class="deeppink">Usuarios registrados</a></div>
+                        <div class="breadcrumb-item"><a href="../Otras/Buscar_Genero.php" class="deeppink">Búsqueda</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Resultados de búsqueda</a></div>
+                    </div>
+                </nav>
+            </div>
 
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Administrador/" class="deeppink">Administración</a></div>
+                        <div class="breadcrumb-item"><a href="../Administrador/Elegir_Accion.php" class="deeppink">Elegir acción</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Administrar juegos</a></div>
+                    </div>
+                </nav>
+            </div>
 
             <div class="row mt-2 mb-2 principal">
                 <div class="col-4 "></div>

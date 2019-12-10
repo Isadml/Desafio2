@@ -15,6 +15,11 @@ and open the template in the editor.
         <title>Añadir reseña</title>
     </head>
     <body>
+        <?php
+        include_once '../../Modelo/Usuario.php';
+        session_start();
+        $usuario = $_SESSION ['user'];
+        ?>
         <div class="container-fluid">
             <div class="row mt-2">
                 <div class="titulo">
@@ -26,8 +31,18 @@ and open the template in the editor.
                 </div>
             </div>
 
-           <?php include_once '../../menu.php'; ?> 
+            <?php include_once '../../menu.php'; ?> 
 
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados" class="deeppink">Usuarios registrados</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Añadir reseña</a></div>
+                    </div>
+                </nav>
+            </div>
 
             <div class="row mt-2 mb-2 principal">
                 <div class="col-4 "></div>
@@ -35,10 +50,7 @@ and open the template in the editor.
                     <h3>Añadir reseña</h3>
 
                     <?php
-                    include_once '../../Modelo/Usuario.php';
-                    session_start();
-                    $usuario = $_SESSION ['user'];
-                     if (!empty($usuario)) {
+                    if (!empty($usuario)) {
                         ?>
 
                         <form name="add_review" action="../../Controladores/Controlador_Usuario_Registrado.php" method="POST">
@@ -58,18 +70,18 @@ and open the template in the editor.
                                 <label for="subir"></label>
                                 <button type="submit" class="form-control cyan principal" id="subir" name="subir">Subir reseña</button>
                             </div>
-                            
+
                             <div class="form-group">
                                 <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
                             </div>
                         </form>
 
-                    <?php
+                        <?php
                     } else {
                         echo 'No tiene permisos para acceder a esta página.';
                     }
                     ?>
-                    
+
                     <div class="form-group">
                         <label for="volver"></label>
                         <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">

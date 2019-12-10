@@ -15,6 +15,11 @@ and open the template in the editor.
         <title>Elegir acción</title>
     </head>
     <body>
+        <?php
+        include_once '../../Modelo/Usuario.php';
+        session_start();
+        $usuario = $_SESSION ['user'];
+        ?>
         <div class="container-fluid">
             <div class="row mt-2">
                 <div class="titulo">
@@ -28,15 +33,23 @@ and open the template in the editor.
 
             <?php include_once '../../menu.php'; ?> 
 
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Administrador/" class="deeppink">Administración</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Elegir acción</a></div>
+                    </div>
+                </nav>
+            </div>
+
             <div class="row mt-2 mb-2 principal">
                 <div class="col-4 "></div>
                 <div class="col-4 mt-2 mb-2 cyan">
                     <h3>¿Qué deseas hacer?</h3>
 
                     <?php
-                    include_once '../../Modelo/Usuario.php';
-                    session_start();
-                    $usuario = $_SESSION ['user'];
                     if (!empty($usuario)) {
                         ?>
 

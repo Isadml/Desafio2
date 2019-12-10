@@ -15,6 +15,11 @@ and open the template in the editor.
         <title>Editar perfil</title>
     </head>
     <body>
+        <?php
+        include_once '../../Modelo/Usuario.php';
+        session_start();
+        $usuario = $_SESSION ['user'];
+        ?>
         <div class="container-fluid">
             <div class="row mt-2">
                 <div class="titulo">
@@ -26,7 +31,18 @@ and open the template in the editor.
                 </div>
             </div>
 
-           <?php include_once '../../menu.php'; ?> 
+            <?php include_once '../../menu.php'; ?> 
+
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Usuarios_Registrados" class="deeppink">Usuarios registrados</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Editar perfil</a></div>
+                    </div>
+                </nav>
+            </div>
 
             <div class="row mt-2 mb-2 principal">
                 <div class="col-4 "></div>
@@ -34,9 +50,6 @@ and open the template in the editor.
                     <h3>Editar perfil</h3>
 
                     <?php
-                    include_once '../../Modelo/Usuario.php';
-                    session_start();
-                    $usuario = $_SESSION ['user'];
                     if (!empty($usuario)) {
                         ?>
 
@@ -71,7 +84,7 @@ and open the template in the editor.
                             </div>
                         </form>
 
-                    <?php
+                        <?php
                     } else {
                         echo 'No tiene permisos para acceder a esta página.';
                     }
@@ -81,7 +94,7 @@ and open the template in the editor.
                         <label for="volver"></label>
                         <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
                     </div>
-                    
+
                 </div>
                 <div class="col-4 mt-3 mb-2"></div>
             </div>

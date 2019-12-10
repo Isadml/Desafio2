@@ -15,6 +15,12 @@ and open the template in the editor.
         <title>Administración de juegos</title>
     </head>
     <body>
+        <?php
+        include_once '../../Modelo/Videojuego.php';
+        include_once '../../Modelo/Usuario.php';
+        session_start();
+        $usuario = $_SESSION ['user'];
+        ?>
         <div class="container-fluid">
             <div class="row mt-2">
                 <div class="titulo">
@@ -28,6 +34,18 @@ and open the template in the editor.
 
             <?php include_once '../../menu.php'; ?> 
 
+            <div class="row">
+                <nav>
+                    <div class="breadcrumb principal">
+                        <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
+                        <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
+                        <div class="breadcrumb-item"><a href="../Administrador/" class="deeppink">Administración</a></div>
+                        <div class="breadcrumb-item"><a href="../Administrador/Elegir_Accion.php" class="deeppink">Elegir acción</a></div>
+                        <div class="breadcrumb-item active"><a href="#" class="deeppink">Administrar juegos</a></div>
+                    </div>
+                </nav>
+            </div>
+
 
             <div class="row mt-2 mb-2 principal">
                 <div class="col-4 "></div>
@@ -35,11 +53,7 @@ and open the template in the editor.
                     <h3>Administración de juegos</h3>
 
                     <?php
-                    include_once '../../Modelo/Videojuego.php';
-                    include_once '../../Modelo/Usuario.php';
-                    session_start();
-                    $usuario = $_SESSION ['user'];
-                     if (!empty($usuario)) {
+                    if (!empty($usuario)) {
 
                         $listaJuegos = $_SESSION['listaJuegos'];
 
@@ -115,12 +129,12 @@ and open the template in the editor.
                                 <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
                             </div>
                         </form>
-                    <?php
+                        <?php
                     } else {
                         echo 'No tiene permisos para acceder a esta página.';
                     }
                     ?>
-                    
+
                     <div class="form-group">
                         <label for="volver"></label>
                         <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">

@@ -14,7 +14,7 @@
                 </nav>
 
                 <nav class="navbar">
-                    <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu2" disabled>Usuarios registrados</button>
+                    <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu2">Usuarios registrados</button>
                     <div class="collapse navbar-collapse" id="menu2">
                         <nav class="navbar-nav">
                             <a href="Vistas/Usuarios_Registrados/Editar_Perfil.php" class="nav-link deeppink">Editar perfil</a>
@@ -25,7 +25,7 @@
                 </nav>
 
                 <nav class="navbar">
-                    <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu3" disabled>Administración</button>
+                    <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu3">Administración</button>
                     <div class="collapse navbar-collapse" id="menu3">
                         <nav class="navbar-nav">
                             <a href="Vistas/Administrador/Administrar_Juegos.php" class="nav-link deeppink">Administrar juegos</a>
