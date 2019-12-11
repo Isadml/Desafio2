@@ -15,7 +15,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row mt-2">
+            <div class="row">
                 <div class="col-lg-12 col-sm-12 titulo">
                     <header>
                         <?php
@@ -35,7 +35,7 @@ and open the template in the editor.
                 </nav>
             </div>
 
-            <div class="row mt-2 mb-2 principal">
+            <div class="row principal">
                 <div class="col-lg-2 col-sm-1"></div>
                 <div class="col-lg-4 col-sm-5 mt-2 mb-2 cyan">
 
@@ -77,6 +77,8 @@ and open the template in the editor.
                 <div class="col-lg-1 col-sm-1 mt-2 mb-2"></div>
             </div>
 
+            <audio src="audio/musica-de-super-mario-bros-tema-principal.mp3" autoplay loop></audio>
+            
             <div class="row mt-5 principal cyan">
                 <div class="col-lg-12 col-sm-12">
                     <footer>

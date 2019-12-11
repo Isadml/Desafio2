@@ -1,4 +1,5 @@
-<?php
+<?php ?>
+<img src="imagenes/logo.svg" width="100px">
 
-echo 'RetroLovers';
+<?php echo 'RetroLovers'?>
 

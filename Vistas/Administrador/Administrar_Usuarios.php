@@ -114,6 +114,9 @@ and open the template in the editor.
                         <?php
                     } else {
                         echo 'No tiene permisos para acceder a esta página.';
+                        ?>
+                    <img src="../../imagenes/04FamicomCategoria.gif" width="300px">
+                    <?php
                     }
                     ?>
 

@@ -1,5 +1,4 @@
 <?php ?>
-
 <div class="row mt-2">
     <div class="col-lg-2 col-sm-2 "></div>
     <nav class="col-lg-2 col-sm-2 navbar">
@@ -39,7 +38,7 @@
         <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu4">Inicio de sesión</button>
         <div class="collapse navbar-collapse" id="menu4">
             <nav class="navbar-nav">
-            <a href="Vistas/Otras/Iniciar_Sesion.php" class="nav-link deeppink">Inicio de sesión</a>
+                <a href="Vistas/Otras/Iniciar_Sesion.php" class="nav-link deeppink">Inicio de sesión</a>
             </nav>
         </div>
     </nav>
