@@ -5,8 +5,8 @@
 }
 
 @font-face {
-  font-family: "Lazer84";
-  src: url("../fuentes/Lazer84.ttf");
+    font-family: "Lazer84";
+    src: url("../fuentes/Lazer84.ttf");
 }
 
 body {
@@ -55,4 +55,14 @@ header {
     background-color: rgba(125,21,172);
 }
 
-
+@media all and (min-width: 0px) and (max-width: 600px) {
+    * {
+        font-size: 13pt;
+    }
+    body {
+        background-image: url(../imagenes/istockphoto-1065578652-170667a.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}

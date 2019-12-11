@@ -17,7 +17,7 @@ and open the template in the editor.
     <body>
         <div class="container-fluid">
             <div class="row mt-2">
-                <div class="titulo">
+                <div class="col-lg-12 col-sm-12 titulo">
                     <header>
                         <?php
                         include_once '../../cabecera.php';
@@ -29,7 +29,7 @@ and open the template in the editor.
             <?php include_once '../../menu.php'; ?> 
             <div class="row">
                 <nav>
-                    <div class="breadcrumb principal">
+                    <div class="col-lg-12 col-sm-12 breadcrumb principal">
                         <div class="breadcrumb-item"><a href="../../index.php" class="deeppink">Inicio</a></div>
                         <div class="breadcrumb-item"><a href="../../Vistas/Otras/Iniciar_Sesion.php" class="deeppink">Inicio de sesión</a></div>
                         <div class="breadcrumb-item active"><a href="#" class="deeppink">Registro de usurio</a></div>
@@ -39,8 +39,8 @@ and open the template in the editor.
 
 
             <div class="row mt-2 mb-2 principal">
-                <div class="col-4 "></div>
-                <div class="col-4 mt-2 mb-2 cyan">
+                <div class="col-lg-4 col-sm-2"></div>
+                <div class="col-lg-4 col-sm-8 mt-2 mb-2 cyan">
                     <h3>Página de registro</h3>
 
                     <form name="editar_perfil" action="../../Controladores/Controlador_general.php" method="POST">
@@ -76,11 +76,11 @@ and open the template in the editor.
                     </div>
                     
                 </div>
-                <div class="col-4 mt-3 mb-2"></div>
+                <div class="col-lg-4 col-sm-2 mt-3 mb-2"></div>
             </div>
 
             <div class="row mt-5 principal cyan">
-                <div class="col">
+                <div class="col-lg-12 col-sm-12">
                     <footer>
                         <?php
                         include_once '../../pie.php';

@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         include_once '../Modelo/Videojuego.php';
-        include_once '../Modelo/Conexion.php';
+        include_once '../Auxiliares/Conexion.php';
         include_once '../Modelo/Usuario.php';
         session_start();
 
@@ -52,16 +52,16 @@ and open the template in the editor.
             $resumen = $_REQUEST['resumen'];
             $plataformas = $_REQUEST['plataforma'];
             foreach ($plataformas as $dato) {
-                $plataform = $plataform.', '. $dato;
+                $plataform = $plataform . ', ' . $dato;
             }
-            $imagen = "../../imagenes/".$nombre_img;
+            $imagen = "../../imagenes/" . $nombre_img;
             $genero = $_REQUEST['genero'];
             foreach ($genero as $dato) {
-                $gen = $gen.', '. $dato;
+                $gen = $gen . ', ' . $dato;
             }
-
+            
             Conexion::addJuegos($titulo, $anio, $pais, $productora, $resumen, $plataform, $gen, $imagen);
-
+            
             header("Location: ../Vistas/Usuarios_Registrados/Add_Juego.php");
         }
 
@@ -94,7 +94,7 @@ and open the template in the editor.
             Conexion::addReview($user, $titulo, $descripcion);
             header("Location: ../Vistas/Usuarios_Registrados/Add_Review.php");
         }
-        
+
         if (isset($_REQUEST['cerrar'])) {
             session_destroy();
             header("Location: ../index.php");

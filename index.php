@@ -16,7 +16,7 @@ and open the template in the editor.
     <body>
         <div class="container-fluid">
             <div class="row mt-2">
-                <div class="titulo">
+                <div class="col-lg-12 col-sm-12 titulo">
                     <header>
                         <?php
                         include_once 'cabecera.php';
@@ -29,15 +29,15 @@ and open the template in the editor.
 
             <div class="row">
                 <nav>
-                    <div class="breadcrumb principal">
+                    <div class="col-lg-12 col-sm-12 breadcrumb principal">
                         <div class="breadcrumb-item active"><a href="#" class="deeppink">Inicio</a></div>
                     </div>
                 </nav>
             </div>
 
             <div class="row mt-2 mb-2 principal">
-                <div class="col-1 mt-2 mb-2"></div>
-                <div class="col-4 mt-3 mb-2">
+                <div class="col-lg-2 col-sm-1"></div>
+                <div class="col-lg-4 col-sm-5 mt-2 mb-2 cyan">
 
                     <div class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -66,19 +66,19 @@ and open the template in the editor.
                     </div>
 
                 </div>
-                <div class="col-2 mt-2 mb-2"></div>
-                <div class="col-4 mt-3 mb-2 cyan">
+                <div class="col-lg-1 col-sm-1"></div>
+                <div class="col-lg-4 col-sm-4 mt-2 mb-2 cyan">
                     <p>En RetroLovers somos amantes de los videojuegos y las consolas retro. Nos encantan los personajes pixelados
                         y la música en 8-bits.
                         Aquí podrás encontrar toda la información sobre tus videojuegos favoritos, algunas rarezas poco conocidas 
                         y reviews de otros usuarios por si te animas a probar algo nuevo (bueno... o no tan nuevo).
                         Ya sabes, ¡retrojueguizate!</p>
                 </div>
-                <div class="col-1 mt-2 mb-2"></div>
+                <div class="col-lg-1 col-sm-1 mt-2 mb-2"></div>
             </div>
 
             <div class="row mt-5 principal cyan">
-                <div class="col">
+                <div class="col-lg-12 col-sm-12">
                     <footer>
                         <?php
                         include_once './pie.php';
