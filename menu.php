@@ -1,6 +1,6 @@
 <?php ?>
 
-<div class="row mt-2 overlay overlay-content">
+<div class="row mt-2">
     <div class="col-lg-2 col-sm-2 "></div>
     <nav class="col-lg-2 col-sm-2 navbar">
         <button class="navbar-toggler deeppink" type="button" data-toggle="collapse" data-target="#menu">Juegos</button>
