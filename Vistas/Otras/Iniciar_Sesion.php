@@ -36,7 +36,7 @@ and open the template in the editor.
                 </nav>
             </div>
 
-            <div class="row mt-2 mb-2 principal">
+            <div class="row no-gutters mt-2 mb-2 principal">
                 <div class="col-lg-4 col-sm-2"></div>
                 <div class="col-lg-4 col-sm-8 mt-2 mb-2 cyan">
                     <h3>Inicio de sesión</h3>
