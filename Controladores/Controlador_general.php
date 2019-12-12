@@ -45,28 +45,28 @@ and open the template in the editor.
                 header("Location: ../index.php");
             }
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR REGISTRO***********************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['registro'])){
+
+        if (isset($_REQUEST['registro'])) {
             $email = $_REQUEST['email'];
             $password = $_REQUEST['passw'];
             $pasword_encriptado = md5($pass);
             $nombre = $_REQUEST['nombre'];
             $apellidos = $_REQUEST['apellidos'];
-            
+
             Conexion::insertarUsuario($email, $nombre, $apellidos, $pasword_encriptado);
-            
+
             header("Location: ../index.php");
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR RECUPERAR PASS*****************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['aceptar_email'])){
+
+        if (isset($_REQUEST['aceptar_email'])) {
             $email = $_REQUEST['email'];
 
             $u = Conexion::existeUsuario($email);
@@ -85,46 +85,45 @@ and open the template in the editor.
                 }
             }
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR BUSCAR NOMBRE******************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['buscar_n'])){
+
+        if (isset($_REQUEST['buscar_n'])) {
             $nombre = $_REQUEST ['titulo'];
 
-            $juegos = Conexion::buscarJuegosNombre ($nombre);
+            $juegos = Conexion::buscarJuegosNombre($nombre);
 
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR BUSCAR GENERO******************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['buscar_g'])){
+
+        if (isset($_REQUEST['buscar_g'])) {
             $genero = $_REQUEST ['genero'];
 
-            $juegos = Conexion::buscarJuegosGenero ($genero);
+            $juegos = Conexion::buscarJuegosGenero($genero);
 
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }
-        
+
 //************************************************************************************************************************
 //*****************************************CONTROLADOR BUSCAR PLATAFORMA**************************************************
 //************************************************************************************************************************
-        
-        if (isset($_REQUEST['buscar_p'])){
+
+        if (isset($_REQUEST['buscar_p'])) {
             $plataforma = $_REQUEST ['plataforma'];
 
-            $juegos = Conexion::buscarJuegosPlataforma ($plataforma);
+            $juegos = Conexion::buscarJuegosPlataforma($plataforma);
 
             $_SESSION['juegos'] = $juegos;
             header("Location: ../Vistas/Otras/Resultados.php");
         }
-        
         ?>
     </body>
 </html>
