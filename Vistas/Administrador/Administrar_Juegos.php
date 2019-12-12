@@ -96,7 +96,7 @@ and open the template in the editor.
                                 </div>
                                 <div class="form-group">
                                     <label for="imagen">Imagen </label>
-                                    <img src="<?= $j->getImagen() ?>">
+                                    <img src="<?= $j->getImagen() ?>" width="200px">
                                 </div>
                                 <?php if ($j->getEstado() == 0) { ?>
                                     <div class="form-group">
@@ -121,15 +121,33 @@ and open the template in the editor.
                             </form>
 
                         <?php } ?>
+                        </tbody>
+                        </table>
+                    </div>
+                <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2"></div>
+                    <div class="col-lg-4 col-sm-4">
                         <form name="add" action="../../Controladores/Controlador_Administrador.php" method="POST">
                             <div class="form-group">
-                                <label for="add_j"></label>
-                                <button type="submit" class="form-control cyan principal" id="add_j" name="add_j">+</button>
+                                <label for="add_u"></label>
+                                <input type="submit" class="form-control cyan principal" id="add_u" name="add_u" value="+">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
+                                <input type="submit" class="form-control cyan principal" id="cerrar"name="cerrar" value="Cerrar sesión">
                             </div>
                         </form>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="form-group">
+                            <label for="volver"></label>
+                            <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2"></div>
+                </div>
                         <?php
                     } else {
                         echo 'No tiene permisos para acceder a esta página.';
@@ -138,15 +156,6 @@ and open the template in the editor.
                     <?php
                     }
                     ?>
-
-                    <div class="form-group">
-                        <label for="volver"></label>
-                        <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-sm-2 mt-3 mb-2"></div>
-            </div>
 
             <div class="row mt-5 principal cyan">
                 <div class="col-lg-12 col-sm-12">

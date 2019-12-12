@@ -46,89 +46,119 @@ and open the template in the editor.
                 </nav>
             </div>
 
-            <div class="row mt-2 mb-2 principal">
-                <div class="col-lg-4 col-sm-2"></div>
-                <div class="col-lg-4 col-sm-8 mt-2 mb-2 cyan">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 mt-2 mb-2 cyan principal">
                     <h3>Administración de usuarios</h3>
 
                     <?php
                     if (!empty($usuario)) {
                         $listaUsuarios = $_SESSION['listaUsuarios'];
+                        ?>
 
-                        for ($i = 0; $i < count($listaUsuarios); $i++) {
-                            $u = $listaUsuarios [$i];
-                            ?>
-                            <form action="../../Controladores/Controlador_Administrador.php" name="admin_usuarios" method="POST">
-                                <div class="form-group">
-                                    <label for="codigo"></label>
-                                    <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $u->getCodigo() ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email: </label>
-                                    <input type="email" class="form-control" id="email" name="email" value="<?= $u->getEmail() ?>" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nombre">Nombre: </label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $u->getNombre() ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="apellidos">Apellidos: </label>
-                                    <input type="text" class="form-control" id="apellidos" name="apellidos" value="<?= $u->getApellidos() ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="rol">Rol: </label>
-                                    <input type="text" id="rol" class="form-control" name="rol" value="<?= $u->getRol() ?>">
-                                </div>
-                                <?php if ($u->getEstado() == 0) { ?>
-                                    <div class="form-group">
-                                        <label for="inactivo_u"></label>
-                                        <button type="submit" class="form-control cyan principal" id="inactivo_u" name="inactivo_u">Inactivo</button>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="form-group">
-                                        <label for="activo_u"></label>
-                                        <button type="submit" class="form-control cyan principal" id="activo_u" name="activo_u">Activo</button>
-                                    </div>
-                                <?php }
-                                ?>
-                                <div class="form-group">
-                                    <label for="modificar_u"></label>
-                                    <button type="submit" class="form-control cyan principal" id="modificar_u" name="modificar_u">Modificar</button>
-                                </div>
-                                <div class="form-group">
-                                    <label for="borrar_u"></label>
-                                    <button type="submit" class="form-control cyan principal" id="borrar_u" name="borrar_u">Borrar</button>
-                                </div>
-                            </form>
+                        <table>
+                            <tbody>
 
-                        <?php } ?>
+                                <?php
+                                for ($i = 0; $i < count($listaUsuarios); $i++) {
+                                    $u = $listaUsuarios [$i];
+                                    ?>
+                                    <tr>
+                                <form action="../../Controladores/Controlador_Administrador.php" name="admin_usuarios" method="POST">
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="codigo"></label>
+                                            <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $u->getCodigo() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="email">Email: </label>
+                                            <input type="email" class="form-control" id="email" name="email" value="<?= $u->getEmail() ?>" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre: </label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $u->getNombre() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="apellidos">Apellidos: </label>
+                                            <input type="text" class="form-control" id="apellidos" name="apellidos" value="<?= $u->getApellidos() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="rol">Rol: </label>
+                                            <input type="text" id="rol" class="form-control" name="rol" value="<?= $u->getRol() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php if ($u->getEstado() == 0) { ?>
+                                            <div class="form-group">
+                                                <label for="inactivo_u"></label>
+                                                <button type="submit" class="form-control cyan principal" id="inactivo_u" name="inactivo_u">Inactivo</button>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="form-group">
+                                                <label for="activo_u"></label>
+                                                <button type="submit" class="form-control cyan principal" id="activo_u" name="activo_u">Activo</button>
+                                            </div>
+                                        <?php }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="modificar_u"></label>
+                                            <button type="submit" class="form-control cyan principal" id="modificar_u" name="modificar_u">Modificar</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="borrar_u"></label>
+                                            <button type="submit" class="form-control cyan principal" id="borrar_u" name="borrar_u">Borrar</button>
+                                        </div>
+                                    </td>
+                                </form>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2"></div>
+                    <div class="col-lg-4 col-sm-4">
                         <form name="add" action="../../Controladores/Controlador_Administrador.php" method="POST">
                             <div class="form-group">
                                 <label for="add_u"></label>
-                                <button type="submit" class="form-control cyan principal" id="add_u" name="add_u">+</button>
+                                <input type="submit" class="form-control cyan principal" id="add_u" name="add_u" value="+">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
+                                <input type="submit" class="form-control cyan principal" id="cerrar"name="cerrar" value="Cerrar sesión">
                             </div>
                         </form>
-
-                        <?php
-                    } else {
-                        echo 'No tiene permisos para acceder a esta página.';
-                        ?>
-                    <img src="../../imagenes/04FamicomCategoria.gif" width="300px">
-                    <?php
-                    }
-                    ?>
-
-                    <div class="form-group">
-                        <label for="volver"></label>
-                        <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
                     </div>
-
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="form-group">
+                            <label for="volver"></label>
+                            <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2"></div>
                 </div>
-                <div class="col-lg-4 col-sm-2 mt-3 mb-2"></div>
-            </div>
+
+
+                <?php
+            } else {
+                echo 'No tiene permisos para acceder a esta página.';
+                ?>
+                <img src="../../imagenes/04FamicomCategoria.gif" width="300px">
+                <?php
+            }
+            ?>
 
             <div class="row mt-5 principal cyan">
                 <div class="col-lg-12 col-sm-12">
@@ -139,7 +169,6 @@ and open the template in the editor.
                     </footer>
                 </div>
             </div>
-
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

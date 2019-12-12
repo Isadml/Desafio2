@@ -48,80 +48,106 @@ and open the template in the editor.
             </div>
 
             <div class="row mt-2 mb-2 principal">
-                <div class="col-lg-4 col-sm-2"></div>
-                <div class="col-lg-4 col-sm-8 mt-2 mb-2 cyan">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-sm-8 mt-2 mb-2 cyan">
                     <h3>Administración de reseñas</h3>
 
                     <?php
                     if (!empty($usuario)) {
                         $listaReviews = $_SESSION['listaReviews'];
+                        ?>
+                        <table>
+                            <tbody>
 
-                        for ($i = 0; $i < count($listaReviews); $i++) {
-                            $r = $listaReviews [$i];
-                            ?>
-                            <form action="../../Controladores/Controlador_Administrador.php" name="admin_reviews" method="POST">
-                                <div class="form-group">
-                                    <label for="codigo"></label>
-                                    <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $r->getCodigo() ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="titulo">Título: </label>
-                                    <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $r->getTitulo() ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="descripcion">Descripción: </label>
-                                    <input type="text" id="descripcion" class="form-control" name="descripcion" value="<?= $r->getDescripcion() ?>">
-                                </div>
-                                <?php if ($r->getEstado() == 0) { ?>
-                                    <div class="form-group">
-                                        <label for="inactivo_r"></label>
-                                        <button type="submit" class="form-control cyan principal" id="inactivo_r" name="inactivo_r">Inactivo</button>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="form-group">
-                                        <label for="activo_r"></label>
-                                        <button type="submit" class="form-control cyan principal" id="activo_r" name="activo_r">Activo</button>
-                                    </div>
-                                <?php }
-                                ?>
-                                <div class="form-group">
-                                    <label for="modificar_r"></label>
-                                    <button type="submit" class="form-control cyan principal" id="modificar_r" name="modificar_r">Modificar</button>
-                                </div>
-                                <div class="form-group">
-                                    <label for="borrar_r"></label>
-                                    <button type="submit" class="form-control cyan principal" id="borrar_r" name="borrar_r">Borrar</button>
-                                </div>
-                            </form>
+                                <?php
+                                for ($i = 0; $i < count($listaReviews); $i++) {
+                                    $r = $listaReviews [$i];
+                                    ?>
+                                    <tr>
+                                <form action="../../Controladores/Controlador_Administrador.php" name="admin_reviews" method="POST">
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="codigo"></label>
+                                            <input type="hidden" class="form-control" id="codigo" name="codigo" value="<?= $r->getCodigo() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="titulo">Título: </label>
+                                            <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $r->getTitulo() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="descripcion">Descripción: </label>
+                                            <input type="text" id="descripcion" class="form-control" name="descripcion" value="<?= $r->getDescripcion() ?>">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php if ($r->getEstado() == 0) { ?>
+                                            <div class="form-group">
+                                                <label for="inactivo_r"></label>
+                                                <button type="submit" class="form-control cyan principal" id="inactivo_r" name="inactivo_r">Inactivo</button>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="form-group">
+                                                <label for="activo_r"></label>
+                                                <button type="submit" class="form-control cyan principal" id="activo_r" name="activo_r">Activo</button>
+                                            </div>
+                                        <?php }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="modificar_r"></label>
+                                            <button type="submit" class="form-control cyan principal" id="modificar_r" name="modificar_r">Modificar</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="borrar_r"></label>
+                                            <button type="submit" class="form-control cyan principal" id="borrar_r" name="borrar_r">Borrar</button>
+                                        </div>
+                                    </td>
+                                </form>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="col-lg-2"></div>
+                </div>
 
-                        <?php } ?>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-2"></div>
+                    <div class="col-lg-4 col-sm-4">
                         <form name="add" action="../../Controladores/Controlador_Administrador.php" method="POST">
                             <div class="form-group">
-                                <label for="add_r"></label>
-                                <button type="submit" class="form-control cyan principal" id="add_r" name="add_r">+</button>
+                                <label for="add_u"></label>
+                                <input type="submit" class="form-control cyan principal" id="add_u" name="add_u" value="+">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control cyan principal" name="cerrar">Cerrar sesión</button>
+                                <input type="submit" class="form-control cyan principal" id="cerrar"name="cerrar" value="Cerrar sesión">
                             </div>
                         </form>
-
-                        <?php
-                    } else {
-                        echo 'No tiene permisos para acceder a esta página.';
-                        ?>
-                    <img src="../../imagenes/04FamicomCategoria.gif" width="300px">
-                    <?php
-                    }
-                    ?>
-
-                    <div class="form-group">
-                        <label for="volver"></label>
-                        <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
                     </div>
-
+                    <div class="col-lg-4 col-sm-4">
+                        <div class="form-group">
+                            <label for="volver"></label>
+                            <input type="submit" id="volver" name="volver" class="form-control cyan principal" value="Volver" onclick="pag_Anterior()">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2"></div>
                 </div>
-                <div class="col-lg-4 col-sm-2 mt-3 mb-2"></div>
-            </div>
+
+                <?php
+            } else {
+                echo 'No tiene permisos para acceder a esta página.';
+                ?>
+                <img src="../../imagenes/04FamicomCategoria.gif" width="300px">
+                <?php
+            }
+            ?>
 
             <div class="row mt-5 principal cyan">
                 <div class="col-lg-12 col-sm-12">
@@ -134,6 +160,7 @@ and open the template in the editor.
             </div>
 
         </div>
+
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
