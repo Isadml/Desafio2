@@ -19,6 +19,7 @@ and open the template in the editor.
             <div class="row mt-2">
                 <div class="col-lg-12 col-sm-12 titulo">
                     <header>
+                        <img src="../../imagenes/logo.svg" width="100px">
                         <?php
                         include_once '../../cabecera.php';
                         ?>

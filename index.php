@@ -18,6 +18,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-lg-12 col-sm-12 titulo">
                     <header>
+                        <img src="imagenes/logo.svg" width="100px">
                         <?php
                         include_once 'cabecera.php';
                         ?>
